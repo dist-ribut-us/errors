@@ -1,5 +1,9 @@
 package errors
 
+import (
+	"fmt"
+)
+
 // String creates an error from a string
 type String string
 
@@ -28,7 +32,7 @@ func Wrap(cause string, err error) error {
 
 // Error implements error interface
 func (w *Wrapper) Error() string {
-	return w.Because + w.Err.Error()
+	return fmt.Sprintf("%s: %s", w.Because, w.Err.Error())
 }
 
 // Cause returns the cause of the error
