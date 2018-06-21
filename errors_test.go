@@ -10,5 +10,5 @@ func TestErrors(t *testing.T) {
 	assert.Error(t, err)
 
 	err = Wrap("testing", err)
-	assert.Equal(t, "testing: this is an error", err.Error())
+	assert.Equal(t, "testing -> this is an error", err.Error())
 }
